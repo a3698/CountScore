@@ -1,0 +1,23 @@
+
+readfile = open('report.txt')
+records = readfile.readlines()
+#print(records[1].strip())
+total2 =[0,0,0,0,0,0,0,0,0,0]
+for i in range(1,len(records)):
+    record = records[i].split()
+
+    total1 = 0
+
+    for j in range(1,len(record)):
+
+        total1 += int(record[j])
+        total2[j] += int(record[j])
+
+    average = round(total1/(len(record)-1),1)
+
+    record.append(total1)
+    record.append(average)
+    print(record)
+print(total2)
+average2=[round(k/(len(records)-1)) for k in total2]
+print(average2)
