@@ -1,8 +1,8 @@
 result = []
 readfile = open('report.txt')
 records = readfile.readlines()
-print(records)
-# print(records[1].strip())
+
+
 total2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 for i in range(1, len(records)):
     record = records[i].split()
@@ -17,7 +17,7 @@ for i in range(1, len(records)):
 
     record.append(total1)
     record.append(average)
-    print(record)
+
     result.append(record)
 average2 = [round(k / (len(records) - 1)) for k in total2]
 
@@ -44,17 +44,17 @@ for k in range(1, len(result) - 1):
 
 for k in range(0, len(result)):
     result[k].insert(0, k)
-print(result)
 
-for k in range(0,len(result)):
-    for j in range(2,10):
-        if int(result[k][j])<60:
-            result[k][j]='不及格'
-    for j in range(0,13):
-        result[k][j]=str(result[k][j])
-    result[k]=' '.join(result[k])+'\n'
 
-result.insert(0,'名次 姓名 语文 数学 英语 物理 化学 生物 政治 历史 地理 总分 平均分\n')
-print(result)
-fo=open('endfile1.txt','w')
+for k in range(0, len(result)):
+    for j in range(2, 10):
+        if int(result[k][j]) < 60:
+            result[k][j] = '不及格'
+    for j in range(0, 13):
+        result[k][j] = str(result[k][j])
+    result[k] = ' '.join(result[k]) + '\n'
+
+result.insert(0, '名次 姓名 语文 数学 英语 物理 化学 生物 政治 历史 地理 总分 平均分\n')
+
+fo = open('endfile.txt', 'w')
 fo.writelines(result)
